@@ -1,0 +1,161 @@
+#    -*- mode: org -*-
+#+OPTIONS: reveal_center:t reveal_progress:t reveal_history:t reveal_control:t
+#+OPTIONS: reveal_mathjax:t reveal_rolling_links:nil reveal_keyboard:t reveal_overview:t num:nil
+#+OPTIONS: reveal_width:1600 reveal_height:900
+#+OPTIONS: toc:nil <:nil timestamp:nil email:t reveal_slide_number:"c/t"
+#+REVEAL_MARGIN: 0.1
+#+REVEAL_MIN_SCALE: 0.5
+#+REVEAL_MAX_SCALE: 2.5
+#+REVEAL_TRANS: none
+#+REVEAL_THEME: blood
+#+REVEAL_HLEVEL: 1
+#+REVEAL_EXTRA_CSS: ./presentation.css
+#+REVEAL_ROOT: ../reveal.js/
+
+#+TITLE: How We Used To Be
+#+AUTHOR: Ben Deane
+#+DATE: September 2020
+
+#+REVEAL_HTML: <script type="text/javascript" src="./presentation.js"></script>
+
+#+REVEAL_TITLE_SLIDE: <h2>%t</h2><br/><h3>A CppCon lightning talk</h3><h3>about a 50-year old book</h3><br/><h3>%a / <a href=\"http://twitter.com/ben_deane\">@ben_deane</a></h3><h4>%d</h4>
+
+* Title slide settings                                             :noexport:
+#+begin_source elisp
+(set-face-foreground 'font-lock-comment-face "magenta")
+(set-face-foreground 'font-lock-comment-delimiter-face "magenta")
+#+end_source
+
+* The Book I've Been Reading
+
+Programming Languages: History and Fundamentals, by Jean Sammet
+
+[[./book.jpg]]
+
+published in 1969
+
+#+begin_notes
+Jean Sammet had a bachelor's and a master's degree in mathematics, and an
+honorary doctorate from her bachelor's alma mater.
+
+She developed the FORMAC language and was one of the developers of COBOL.
+
+Beyond that, in the words of Walter Brown, this book was "her life's work".
+
+ - About 120 languages
+ - Over 800 bibliographic references
+ - Examples for major languages
+
+An astonishing reference work and a useful insight into how many things we think
+are new concerns, new ideas, new aspects of the programmer's condition were in
+fact well-known by the late 60s.
+#+end_notes
+
+* Definitions
+
+Jean begins with the definition of a programming language.
+
+ - Machine code knowledge is unnecessary
+ - Potential for conversion to other computers
+ - Problem-oriented notation
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;The first characteristic of a programming language is that the user can write a program without knowing much -- if anything -- about the physical characteristics of the machine on which the program is to be run. This same comment does not apply if he [sic] wishes to obtain maximum efficiency.&quot;</p></blockquote>
+
+#+begin_notes
+The programming community needed definitions: machine code vs assembly vs
+programming languages.
+
+This stuff was quite new at the time.
+
+And yet the concerns are familiar: the ability to fit the language to its
+problem domain, portability desires, and the abstraction afforded by the
+language distinct from the hardware.
+#+end_notes
+
+* Advantages and disadvantages
+
+She then contrasts high-level language advantages and disadvantages.
+
+#+REVEAL_HTML: <div class='vertspace1'></div><h3>
+#+REVEAL_HTML: <div id="columns"> <div id="double">
+ - Advantages
+ - Disadvantages
+#+REVEAL_HTML: </div></div></h3>
+
+#+REVEAL_HTML: <div id="columns"> <div id="double">
+#+ATTR_REVEAL: :frag (appear appear appear appear appear appear appear appear) :frag_idx (1 1 2 2 3 3 4 4)
+ - understanding
+ - compilation time
+ - debugging
+ - efficiency
+ - productivity
+ - debugging
+ - portability
+ - completeness
+#+REVEAL_HTML: </div></div>
+
+#+begin_notes
+"Low-level" here might be literal machine code.
+
+Compilation time was a big concern. In fact even more of a concern than it is
+today. No matter how long the compilation time is today, we can be pretty sure
+that the runtime will outweigh it. This was not the case then!
+n
+Debugging is in both columns: high level languages are easier to debug in
+general, but when you have to go under the hood, they can obfuscate things.
+
+Completeness was a concern: can the language express everything you need it to?
+This was the era where special-purpose languages outnumbered general-purpose languages.
+#+end_notes
+
+* On professional programmers
+
+(distinct perhaps from scientists who use\\
+programming to solve their non-programming domain problems)
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;In the case of a language designed for use by a professional programmer, a major characteristic is to provide maximum capability.&quot;</p></blockquote>
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;...the professional programmer will almost always want to be able to get at the machine code.&quot;</p></blockquote>
+
+#+begin_notes
+Abstractions often need to be truly zero cost to satisfy the professional programmer.
+
+And we always want proof. Now we have tools like Compiler Explorer that help us out.
+
+Trust but verify is our creed. We need to know that the machine code is correct and efficient.
+#+end_notes
+
+* On standardization and language definitions
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;...it should be kept in mind that the language and the means of defining the language are not the same thing.&quot;</p></blockquote>
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;Somehow the standardization process must avoid eliminating or preventing technical progress. This is extremely difficult...&quot;</p></blockquote>
+
+#+begin_notes
+We live this in C++.
+
+We don't produce one implementation: we produce a specification. This is one of
+the things that makes standardization so difficult.
+
+And of course the tension between standardization and technical progress is
+something we still struggle with. We probably always will.
+#+end_notes
+
+* On judging languages
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;The usefulness of the language must be judged independently of the compilers which implement it.&quot;</p></blockquote>
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;The two greatest criticisms of compilers are slow compilation and poor object code.&quot;</p></blockquote>
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;Only after a language has been in use for a while can its advantages be ascertained.&quot;</p></blockquote>
+
+#+begin_notes
+These are good things to remember as we head into C++20. It will take time to
+see which features are great, which need more attention, and which we were wrong
+about.
+#+end_notes
+
+* A final thought
+In the end, /plus ça change, plus c’est la même chose/.
+
+#+REVEAL_HTML: <blockquote nil><p>&quot;...the complexities of today's large computers make it very difficult to learn to program them at all, let alone effectively.&quot;</p></blockquote>
